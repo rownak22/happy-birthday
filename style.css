@@ -1,0 +1,135 @@
+:root{
+  --bg1:#ffecd2;
+  --bg2:#fcb69f;
+  --card:#ffffff;
+  --accent:#ff6b6b;
+  --muted:#666;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans Bengali", "SolaimanLipi", "Nikosh";
+  background: linear-gradient(135deg,var(--bg1),var(--bg2));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+.card{
+  width:100%;
+  max-width:720px;
+  background: linear-gradient(180deg,var(--glass), rgba(255,255,255,0.9));
+  border-radius:16px;
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  text-align:center;
+  position:relative;
+  overflow:visible;
+}
+
+h1{
+  margin:0 0 16px;
+  font-size:1.8rem;
+  color: #333;
+  letter-spacing: -0.4px;
+}
+
+.wish-area{
+  background: #fff;
+  padding:18px;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  margin-bottom:16px;
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+#wishText{
+  margin:0;
+  font-size:1.05rem;
+  color:#222;
+  padding:0 8px;
+  line-height:1.5;
+}
+
+.controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.controls label{font-size:0.9rem;color:var(--muted)}
+#tone{
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.06);
+  background:white;
+  font-size:0.95rem;
+}
+
+.buttons{display:flex;gap:8px;flex-wrap:wrap}
+button{
+  padding:8px 12px;
+  border-radius:9px;
+  border:none;
+  cursor:pointer;
+  font-weight:600;
+  color:white;
+  background:linear-gradient(90deg,var(--accent),#ff8a65);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+button#copy{background:linear-gradient(90deg,#4a90e2,#3b82f6)}
+button#share{background:linear-gradient(90deg,#34d399,#10b981)}
+button#surprise{background:linear-gradient(90deg,#f59e0b,#f97316)}
+button:active{transform:translateY(1px)}
+
+.footer{
+  margin-top:14px;
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* Confetti styles */
+#confetti{
+  pointer-events:none;
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  z-index:999;
+}
+.confetti-piece{
+  position:absolute;
+  top:-10vh;
+  width:10px;
+  height:14px;
+  border-radius:2px;
+  opacity:0.95;
+  transform-origin:center;
+  animation-name:fall, spin;
+  animation-timing-function: linear;
+}
+@keyframes fall{
+  to { transform: translateY(120vh); opacity:0.9; }
+}
+@keyframes spin{
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(120vh) rotate(520deg); }
+}
+
+/* responsive */
+@media (max-width:520px){
+  .card{padding:18px}
+  h1{font-size:1.4rem}
+  #wishText{font-size:0.98rem}
+}
